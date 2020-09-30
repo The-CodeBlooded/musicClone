@@ -5,6 +5,7 @@
 }
 html {
   font-size: 10px;
+  font-family: "Fira Sans Extra Condensed", sans-serif;
 }
 .container {
   overflow: hidden;
@@ -29,7 +30,7 @@ html {
   position: absolute;
   width: 100%;
 }
-.container .audio-5 {
+.container .slide {
   position: absolute;
   height: 100vh;
   width: 100vw;
@@ -51,7 +52,7 @@ html {
 
 p {
   color: #fff;
-  font-size: 3rem;
+  font-size: 5rem;
 }
 
 .mobile {

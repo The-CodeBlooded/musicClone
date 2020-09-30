@@ -3,14 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Music App</title>
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/styles/app.css" />
+    <!-- Title -->
+    <title>Music App</title>
   </head>
   <body>
-    <!-- All Sounds are not owned by me. They are license to https://www.epidemicsound.com/ -->
+    <!--! All Sounds are not owned by me. They are license to https://www.epidemicsound.com/ -->
+    <!-- Main Container -->
     <div class="container">
       <p>Press A S D F G</p>
-      <div class="audio-5"></div>
+      <!-- For Slide Animation -->
+      <div class="slide"></div>
+      <!-- For Bubble Animation -->
       <div class="bubble"></div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -234,6 +244,7 @@
           </style>
         </defs>
         <g class="cls-1">
+          <!-- For Fireball Animation -->
           <g id="fireball">
             <path
               class="cls-2"
@@ -248,6 +259,7 @@
               d="M842.74 392c4.15-17.79 19.28-33.43 37.48-35 7.41-.63 15.06 1 22.2-1.12s13.41-10.28 9.74-16.75a27.1 27.1 0 01-5.8 29.12c-2.7 2.66-6 4.75-8.31 7.76-6 7.77-3.22 20.2 4.68 26s19.29 5.51 27.88.75 14.61-13.29 18.19-22.43c2-5 3.44-10.54 7.31-14.31 6.22-6 16-5.41 24.7-5.87s19.09-4.34 20-13c2.61 8.87-3.68 18-10.94 23.66s-16 9.84-21.59 17.2-6.17 19.83 1.87 24.38a15.84 15.84 0 009.58 1.54c12-1.4 21.92-12.66 21.86-24.7 5 12 .5 27.18-10.24 34.48-6 4.1-13.56 5.85-18.92 10.77-11 10.05-6.44 30.75 7 37.17s30.87-.89 37.81-14c-2.2 13.85-12.23 25.63-24.52 32.39s-26.59 9-40.61 9.2C901.07 499.93 829 450.77 842.74 392z"
             />
           </g>
+          <!-- For Ghost Animation -->
           <g id="ghost">
             <path
               class="cls-5"
@@ -293,6 +305,7 @@
               d="M1054.46 378.1a5.29 5.29 0 11-5.28-5.29 5.28 5.28 0 015.28 5.29zM956.71 419a5.29 5.29 0 11-5.29-5.29 5.29 5.29 0 015.29 5.29z"
             />
           </g>
+          <!-- For Tennis Ball Animation -->
           <g id="ball">
             <path
               class="cls-7"
@@ -325,8 +338,11 @@
         <div class="btn btn-bubble"></div>
       </div>
     </div>
+    <!-- GSAP : For Animation-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <!-- UAPARSER: For Mobile  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/UAParser.js/0.7.20/ua-parser.min.js"></script>
+    <!-- Custom JS -->
     <script src="./assets/scripts/app.js"></script>
   </body>
 </html>

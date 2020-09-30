@@ -1,5 +1,5 @@
+// Initialinzing GSAP
 const tl = new TimelineMax();
-let isPrevAnimComplete = true;
 // For mobile Version
 const mobile = document.querySelector(".mobile");
 const bubbleBtn = document.querySelector(".btn-bubble");
@@ -13,24 +13,10 @@ const ballAudio = new Audio("./assets/music/ball.mp3");
 const ghostAudio = new Audio("./assets/music/ghost.mp3");
 const slideAudio = new Audio("./assets/music/slide.mp3");
 const bubbleAudio = new Audio("./assets/music/bubble.mp3");
-
-// Animations
-const divMove = () => {
-  isPrevAnimComplete = false;
-  tl.set(".audio-5", {
-    x: "-100vw",
-    opacity: 1,
-  });
-  tl.to(".audio-5", 0.25, {
-    x: 0,
-  });
-  tl.to(".audio-5", 0.25, {
-    x: "100vw",
-    onComplete: () => {
-      isPrevAnimComplete = true;
-    },
-  });
-};
+// Make Sure Next Animation after first one in finished
+let isPrevAnimComplete = true;
+//* Animations
+// Fireball
 const fireball = () => {
   isPrevAnimComplete = false;
   const tl = new TimelineMax();
@@ -50,26 +36,7 @@ const fireball = () => {
 
   return tl;
 };
-const tennisBall = () => {
-  isPrevAnimComplete = false;
-  const tl = new TimelineMax();
-  tl.set("#ball", {
-    opacity: 1,
-    x: Math.floor(Math.random() * (window.innerWidth - 300)) + 100,
-  });
-  tl.add("ball");
-  tl.from("#ball", 0.3, {
-    y: -700,
-    ease: Elastic.easeOut,
-  });
-  tl.to("#ball", 0.2, {
-    opacity: 0,
-    onComplete: () => {
-      isPrevAnimComplete = true;
-    },
-  });
-  return tl;
-};
+// Ghost
 const ghost = () => {
   isPrevAnimComplete = false;
   const tl = new TimelineMax();
@@ -92,6 +59,45 @@ const ghost = () => {
   });
   return tl;
 };
+// Slide
+const slide = () => {
+  isPrevAnimComplete = false;
+  tl.set(".slide", {
+    x: "-100vw",
+    opacity: 1,
+  });
+  tl.to(".slide", 0.25, {
+    x: 0,
+  });
+  tl.to(".slide", 0.25, {
+    x: "100vw",
+    onComplete: () => {
+      isPrevAnimComplete = true;
+    },
+  });
+};
+// Tennis Ball
+const tennisBall = () => {
+  isPrevAnimComplete = false;
+  const tl = new TimelineMax();
+  tl.set("#ball", {
+    opacity: 1,
+    x: Math.floor(Math.random() * (window.innerWidth - 300)) + 100,
+  });
+  tl.add("ball");
+  tl.from("#ball", 0.3, {
+    y: -700,
+    ease: Elastic.easeOut,
+  });
+  tl.to("#ball", 0.2, {
+    opacity: 0,
+    onComplete: () => {
+      isPrevAnimComplete = true;
+    },
+  });
+  return tl;
+};
+// Buuble
 const bubble = () => {
   isPrevAnimComplete = false;
   const tl = new TimelineMax();
@@ -107,6 +113,7 @@ const bubble = () => {
   });
   return tl;
 };
+// Key Press Event Listener
 window.addEventListener("keypress", ({ key }) => {
   document.querySelector("p").style.opacity = 0;
   if (isPrevAnimComplete) {
@@ -120,7 +127,7 @@ window.addEventListener("keypress", ({ key }) => {
     }
     if (key === "d") {
       slideAudio.play();
-      divMove();
+      slide();
     }
     if (key === "f") {
       tennisBall();
@@ -132,13 +139,16 @@ window.addEventListener("keypress", ({ key }) => {
     }
   }
 });
-
+/**
+ * For Mobile
+ */
 // Checking If this is open i mobile
 var parser = new UAParser();
 const os = parser.getResult().os.name.toLowerCase();
 if (!(os === "android" || os === "ios")) {
   mobile.style.display = "none";
 }
+//  Event Listener Function
 const eventlisten = (btn, audio, anim) => {
   btn.addEventListener("touchstart", () => {
     document.querySelector("p").style.opacity = 0;
@@ -146,8 +156,9 @@ const eventlisten = (btn, audio, anim) => {
     anim();
   });
 };
+// Runing Event Listner Function For Each Animation
 eventlisten(bubbleBtn, bubbleAudio, bubble);
-eventlisten(slideBtn, slideAudio, divMove);
+eventlisten(slideBtn, slideAudio, slide);
 eventlisten(fireballBtn, fireballAudio, fireball);
 eventlisten(ghostBtn, ghostAudio, ghost);
 eventlisten(ballBtn, ballAudio, tennisBall);
