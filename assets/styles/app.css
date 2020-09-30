@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+}
+.container {
+  overflow: hidden;
+  position: relative;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  background-color: #01110a;
+  height: 100vh;
+  width: 100vw;
+}
+.container #canvas {
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: flex;
+  justify-content: flex;
+  position: absolute;
+  width: 100%;
+}
+.container .audio-5 {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: #75abbc;
+  opacity: 0;
+}
+.container #fireball,
+.container #ball,
+.container #ghost {
+  opacity: 0;
+}
+.container .bubble {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: #afd2e9;
+  opacity: 0;
+}
+
+p {
+  color: #fff;
+  font-size: 3rem;
+}
+
+.mobile {
+  height: 30vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+}
+.mobile .btn {
+  width: 100%;
+}
+.mobile .btn-bubble {
+  background-color: #b5ffe1;
+}
+.mobile .btn-fireball {
+  background-color: #93e5ab;
+}
+.mobile .btn-ghost {
+  background-color: #65b891;
+}
+.mobile .btn-ball {
+  background-color: #4e878c;
+}
+.mobile .btn-slide {
+  background-color: #f1fffa;
+}
